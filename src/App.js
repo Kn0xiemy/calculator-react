@@ -1,8 +1,11 @@
 import Wrapper from "./calculator/Home";
 import Screen from "./calculator/Screen";
-import ButtonBox from './calculator/ButtonContainer'
-import Button from './calculator/Button'
+import ButtonBox from "./calculator/ButtonContainer";
+import Button from "./calculator/Button";
 import CalcProvider from "./calculator/CalcContext";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BlogPage from "./blog/BlogPage";
+import BlogPost from "./blog/BlogOne";
 
 const btnValues = [
   ["C", "+-", "%", "/"],
@@ -15,17 +18,14 @@ const btnValues = [
 function App() {
   return (
     <CalcProvider>
-      <Wrapper>
-        <Screen />
-        <ButtonBox>
-          {btnValues.flat().map((btn, i) => (
-            <Button
-              value={btn}
-              key={i}
-            />
-          ))}
-        </ButtonBox>
-      </Wrapper>
+          <Wrapper>
+            <Screen />
+            <ButtonBox>
+              {btnValues.flat().map((btn, i) => (
+                <Button value={btn} key={i} />
+              ))}
+            </ButtonBox>
+          </Wrapper>
     </CalcProvider>
   );
 }

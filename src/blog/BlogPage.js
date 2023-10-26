@@ -76,20 +76,22 @@ const blogData = [{
 function BlogPage() {
   return (
     <div>
-    <header>
-      <div><Link to="/" style={{textDecoration: 'none', fontSize: 20, fontWeight: 700}}>Back To Home</Link></div>
-    </header>
-    <div className="container">
-      {blogData.map((post) => (
-        <div className="blog-post" key={post.id}>
-          <h2 className="blog-title">{post.title}</h2>
-          <p className="blog-author">By {post.author}</p>
-          <p className="blog-date">Published on {post.date}</p>
-          <p className="blog-content">{post.content}</p>
-        </div>
-      ))}
+      <header>
+        <div><Link to="/" style={{textDecoration: 'none', fontSize: 20, fontWeight: 700}}>Back To Home</Link></div>
+      </header>
+      <div className="container">
+        {blogData.map((post) => (
+          <Link to={`/blog/${post.id}`} key={post.id} style={{textDecoration: 'none', color: 'inherit'}}>
+            <div className="blog-post">
+              <h2 className="blog-title">{post.title}</h2>
+              <p className="blog-author">By {post.author}</p>
+              <p className="blog-date">Published on {post.date}</p>
+              <p className="blog-content">{post.content}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
-  </div>
   )
 }
 
